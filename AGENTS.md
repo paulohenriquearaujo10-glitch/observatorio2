@@ -16,3 +16,6 @@
 - Keep Companies and Supply Chains statistics, cases, chain objects and source metadata in `src/data/empresas-cadeias.ts`, with verified public supplier records in `src/data/empresas-exemplo.ts`; this separates official statistics from searchable corporate records.
 - Companies filters apply only to records with matching dimensions; label unsegmented municipal totals and hide unavailable breakdowns to prevent misleading filtered results.
 - Company cases open in accessible dialogs, and company maps are lazy-loaded after hydration only when territorial data exists; this avoids empty geographic and case views.
+- Keep labor statistics, occupation configuration, institutions and source metadata in `src/data/trabalho-qualificacao.ts` and sourced course offerings in `src/data/cursos-exemplo.ts`; publication requires source and dates to avoid unverified figures.
+- Labor filters apply only to matching dimensions and periods; exports use the same filtered records, while unsegmented totals are explicitly labeled to prevent false comparisons.
+- Tailored-training requests are browser-only simulations without persistence or network submission; this preserves the brief's temporary non-delivery behavior.
