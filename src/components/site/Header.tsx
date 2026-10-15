@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { useState } from "react";
 import { ChevronDown, Menu, X, BarChart3 } from "lucide-react";
 import { useI18n } from "@/i18n";
@@ -12,6 +12,8 @@ export function Header() {
   const { t } = useI18n();
   const [open, setOpen] = useState(false);
   const [drop, setDrop] = useState(false);
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const panelActive = t.panels.some(p => p.slug === pathname);
 
   return (
     <header className="sticky top-0 z-50 bg-navy text-navy-foreground shadow-lg">
@@ -21,9 +23,9 @@ export function Header() {
         <nav className="hidden items-center gap-6 lg:flex" aria-label="Principal">
           <Link to="/" className={navLink} activeProps={active} activeOptions={{ exact: true }}>{t.nav.home}</Link>
           <div className="relative" onMouseEnter={() => setDrop(true)} onMouseLeave={() => setDrop(false)}>
-            <button type="button" className={`${navLink} flex items-center gap-1`} aria-expanded={drop} onClick={() => setDrop((v) => !v)}>
+            <Button variant="ghost" className={`${navLink} h-auto rounded-none px-0 hover:bg-transparent flex items-center gap-1 ${panelActive ? "border-orange" : ""}`} aria-expanded={drop} onClick={() => setDrop((v) => !v)}>
               {t.nav.panels} <ChevronDown className="h-4 w-4" />
-            </button>
+            </Button>
             {drop && (
               <div className="absolute left-1/2 top-full w-[420px] -translate-x-1/2 pt-3">
                 <ul className="rounded-2xl border bg-card p-2 text-card-foreground shadow-xl">
@@ -31,13 +33,13 @@ export function Header() {
                     const Icon = panelIcons[i] ?? BarChart3;
                     return (
                       <li key={p.slug}>
-                        <a href={p.slug} className="flex gap-3 rounded-xl p-3 hover:bg-muted">
+                        <Link to={p.slug} onClick={() => setDrop(false)} aria-current={pathname === p.slug ? "page" : undefined} className={`flex gap-3 rounded-xl p-3 hover:bg-muted ${pathname === p.slug ? "bg-highlight text-orange" : ""}`}>
                           <Icon className="mt-0.5 h-5 w-5 shrink-0 text-orange" />
                           <span>
                             <span className="block text-sm font-semibold">{p.name}</span>
                             <span className="block text-xs text-muted-foreground">{p.q}</span>
                           </span>
-                        </a>
+                        </Link>
                       </li>
                     );
                   })}
@@ -66,7 +68,7 @@ export function Header() {
             <Link to="/" onClick={() => setOpen(false)} className="py-2 font-semibold">{t.nav.home}</Link>
             <div className="py-2 text-xs uppercase tracking-wider text-navy-muted">{t.nav.panels}</div>
             {t.panels.map((p) => (
-              <a key={p.slug} href={p.slug} className="py-1.5 pl-3 text-sm">{p.name}</a>
+              <Link key={p.slug} to={p.slug} onClick={() => setOpen(false)} aria-current={pathname === p.slug ? "page" : undefined} className={`py-1.5 pl-3 text-sm ${pathname === p.slug ? "text-orange-light" : ""}`}>{p.name}</Link>
             ))}
             <Button asChild variant="pill" className="mt-4"><Link to="/mapa" onClick={() => setOpen(false)}>{t.nav.map}</Link></Button>
             <Link to="/dados" onClick={() => setOpen(false)} className="py-3 font-semibold">{t.nav.data}</Link>

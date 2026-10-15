@@ -68,6 +68,12 @@
   --orange-light: oklch(0.79 0.11 52);
   --link: oklch(0.48 0.11 255);
   --highlight: oklch(0.93 0.05 55);
+  --chart-blue: #2F5F98;
+  --chart-gray: #7c8794;
+  --chart-steel: #456c80;
+  --chart-teal: #387d79;
+  --chart-light-blue: #83a3c2;
+  --chart-dark-gray: #505c6a;
 }
 
 @layer base {
@@ -89,4 +95,9 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+}
+
+.economy-section { scroll-margin-top: 240px; }
+@media (max-width: 767px) {
+  .economy-section { scroll-margin-top: 390px; }
 }

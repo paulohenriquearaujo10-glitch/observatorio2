@@ -8,6 +8,8 @@ export const Route = createFileRoute("/dados")({
       { name: "description", content: "Dados abertos, fontes e metodologia do Observatório." },
       { property: "og:title", content: "Dados e Fontes · Observatório de Contagem" },
       { property: "og:description", content: "Dados abertos, fontes e metodologia do Observatório." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: () => <WipPage title="Dados e Fontes" />,
