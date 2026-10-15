@@ -11,3 +11,10 @@
 - [x] Build conditional company sections, filters, charts, chain diagrams, supplier search, stories and downloads.
 - [x] Verify the company page, language switching, filters, story and exports on desktop/mobile.
 - [ ] Publish detailed sector, territory, supplier, jobs and historical datasets — blocked on verified source data not supplied in the brief.
+
+# Labor and Skills
+- [x] Centralize labor datasets, bilingual text, occupation list and source metadata; update Eixo 3 question.
+- [x] Build conditional labor sections, filters, charts, course search, client-only maps and exports.
+- [x] Add tailored-training request simulation, next actions and methodology.
+- [x] Verify language switching, filters, request flow and desktop/mobile layouts.
+- [ ] Publish official jobs, wage, commuting, course and graduate datasets — blocked on confirmed source data not supplied in the brief.
