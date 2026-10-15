@@ -73,4 +73,10 @@ export const fontes = [
 ] as const;
 export const anosDisponiveis = (): number[] => [...new Set([...indicadores.filter(d => d.valor !== null).map(d => Number(d.dataReferencia)), ...graficos.flatMap(g => g.serie.map(p => Number(p.periodo.slice(0, 4))))].filter(Number.isFinite))].sort((a, b) => a - b);
 export function defaultPeriod(): [number, number] { const anos = anosDisponiveis(); const ultimo = anos.at(-1) ?? 2023; return [Math.max(anos[0] ?? ultimo, ultimo - 9), ultimo]; }
-export function hasSeries(g: ChartData) { return g.serie.some(p => Object.values(p.valores).some(v => v !== null)); }
+export function hasSeries(g: ChartData) {
+  if (!g.serie.some(p => Object.values(p.valores).some(v => typeof v === "number" && Number.isFinite(v)))) return false;
+  if (g.tipo !== "line") return true;
+  const years = [...new Set(g.serie.map(p => Number(p.periodo)).filter(Number.isFinite))].sort((a, b) => a - b);
+  if (years.length < 2) return false;
+  return years.every((year, i) => i === 0 || year === (years[i - 1] ?? year) + 1);
+}

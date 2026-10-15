@@ -14,6 +14,7 @@ export function Source({ data }: { data: { fonte: string; dataReferencia: string
   const { t } = useI18n(); return <p className="text-xs leading-relaxed text-muted-foreground">{t.source.fonte}: {data.fonte} · {t.source.dados} {data.dataReferencia} · {t.source.atualizado} {data.atualizadoEm}</p>;
 }
 export function filteredPoints(chart: ChartData, period: [number, number], scope: string): Point[] {
+  if (chart.tipo === "pyramid") return chart.serie.filter(p => { const year = Number(p.recorte); return !Number.isFinite(year) || year >= period[0] && year <= period[1]; });
   return chart.serie.filter(p => { const year = Number(p.periodo.slice(0, 4)); return (!Number.isFinite(year) || year >= period[0] && year <= period[1]) && (chart.recortes?.includes(scope) ? p.recorte === scope : !p.recorte || p.recorte === "municipio"); });
 }
 export function ChartPanel({ chart, compare, period, scope }: { chart: ChartData; compare: string[]; period: [number, number]; scope: string }) {
