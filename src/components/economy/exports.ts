@@ -11,7 +11,7 @@ function save(blob: Blob, filename: string) {
 }
 export function downloadCsv(rows: ExportRow[], filename: string) { save(new Blob([csvText(rows)], { type: "text/csv;charset=utf-8" }), filename + ".csv"); }
 export function chartRows(chart: ChartData, points: Point[] = chart.serie, keys = chart.chaves.map(k => k.id)): ExportRow[] {
-  return points.flatMap(point => keys.filter(key => point.valores[key] !== null && point.valores[key] !== undefined).map(key => ({ indicador: chart.id, periodo: point.periodo, recorte: point.recorte ?? "municipio", serie: key, valor: point.valores[key], unidade: chart.unidade, fonte: chart.fonte, dataReferencia: chart.dataReferencia, periodicidade: chart.periodicidade, atualizadoEm: chart.atualizadoEm })));
+  return points.flatMap(point => keys.filter(key => point.valores[key] !== null && point.valores[key] !== undefined).map(key => ({ indicador: chart.id, periodo: point.periodo, recorte: point.recorte ?? "municipio", serie: key, valor: point.valores[key] ?? null, unidade: chart.unidade, fonte: chart.fonte, dataReferencia: chart.dataReferencia, periodicidade: chart.periodicidade, atualizadoEm: chart.atualizadoEm })));
 }
 export function allRows(): ExportRow[] {
   return [
@@ -27,5 +27,5 @@ export async function downloadXlsx() {
   const XLSX = await import("xlsx"); const wb = XLSX.utils.book_new(); XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(allRows()), "Economia e Territorio"); XLSX.writeFile(wb, "economia-territorio.xlsx");
 }
 export async function downloadPng(node: HTMLElement, name: string) {
-  const { toBlob } = await import("html-to-image"); const blob = await toBlob(node, { pixelRatio: 2, filter: n => !(n instanceof HTMLElement && n.dataset.exportExclude === "true") }); if (blob) save(blob, name + ".png");
+  const { toBlob } = await import("html-to-image"); const blob = await toBlob(node, { pixelRatio: 2, filter: n => !(n instanceof HTMLElement && n.dataset["exportExclude"] === "true") }); if (blob) save(blob, name + ".png");
 }

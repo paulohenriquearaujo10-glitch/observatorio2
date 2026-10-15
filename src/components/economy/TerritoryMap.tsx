@@ -25,8 +25,8 @@ export default function TerritoryMap() {
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>', maxZoom: 19 }).addTo(map);
     const palette = ["--chart-blue", "--orange", "--chart-teal", "--chart-gray", "--chart-steel"];
     Object.entries(geometries).forEach(([key, raw], i) => {
-      const color = getComputedStyle(document.documentElement).getPropertyValue(palette[i]).trim();
-      const layer = L.geoJSON(JSON.parse(raw) as FeatureCollection, { style: { color, weight: 2, fillOpacity: 0.16 }, onEachFeature: (feature, l) => { const props = feature.properties; if (props?.nome) l.bindTooltip(String(props.nome)); l.on("click", () => setArea(props)); } });
+      const color = getComputedStyle(document.documentElement).getPropertyValue(palette[i] ?? "--chart-blue").trim();
+      const layer = L.geoJSON(JSON.parse(raw) as FeatureCollection, { style: { color, weight: 2, fillOpacity: 0.16 }, onEachFeature: (feature, l) => { const props = feature.properties; if (props?.["nome"]) l.bindTooltip(String(props["nome"])); l.on("click", () => setArea(props)); } });
       layersRef.current[key as LayerKey] = layer; if (defaultLayers.includes(key as LayerKey)) layer.addTo(map);
     });
     const observer = new ResizeObserver(() => map.invalidateSize()); observer.observe(container.current);
@@ -41,7 +41,7 @@ export default function TerritoryMap() {
       </div>
       <aside className="min-w-0 space-y-6">
         <div><h3 className="mb-3 text-base font-bold">{e.layers}</h3><div className="space-y-3">{(Object.keys(geometries) as LayerKey[]).map(key => <label key={key} className="flex cursor-pointer items-center gap-3 text-sm"><Checkbox checked={active.includes(key)} onCheckedChange={checked => setActive(a => checked ? [...a, key] : a.filter(k => k !== key))} />{e.layersNames[key]}</label>)}</div></div>
-        <div className="border-t pt-5">{area ? <><p className="text-xs font-semibold uppercase text-orange">{e.example}</p><h3 className="mt-2 text-lg font-bold">{String(area.nome)}</h3><dl className="mt-3 space-y-2 text-sm">{([ ["area", e.area, "km²"], ["populacao", e.population, ""], ["empresas", e.companies, ""], ["empregos", e.jobs, ""] ] as const).filter(([key]) => typeof area[key] === "number").map(([key, label, unit]) => <div key={key} className="flex justify-between gap-2"><dt>{label}</dt><dd>{Number(area[key]).toLocaleString(lang)} {unit}</dd></div>)}</dl><Button asChild variant="link" className="mt-3 h-auto whitespace-normal px-0 text-left"><Link to="/mapa">{e.opportunities} →</Link></Button></> : <p className="text-sm text-muted-foreground">{e.mapSelect}</p>}</div>
+        <div className="border-t pt-5">{area ? <><p className="text-xs font-semibold uppercase text-orange">{e.example}</p><h3 className="mt-2 text-lg font-bold">{String(area["nome"])}</h3><dl className="mt-3 space-y-2 text-sm">{([ ["area", e.area, "km²"], ["populacao", e.population, ""], ["empresas", e.companies, ""], ["empregos", e.jobs, ""] ] as const).filter(([key]) => typeof area[key] === "number").map(([key, label, unit]) => <div key={key} className="flex justify-between gap-2"><dt>{label}</dt><dd>{Number(area[key]).toLocaleString(lang)} {unit}</dd></div>)}</dl><Button asChild variant="link" className="mt-3 h-auto whitespace-normal px-0 text-left"><Link to="/mapa">{e.opportunities} →</Link></Button></> : <p className="text-sm text-muted-foreground">{e.mapSelect}</p>}</div>
       </aside>
     </div>
     <p className="mt-3 text-xs text-muted-foreground">{e.source}: OpenStreetMap · {e.example}</p>

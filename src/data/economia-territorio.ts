@@ -43,7 +43,7 @@ export const graficos: ChartData[] = [
   chart("comercio-exterior", "comercio", "trade", "Exportações, importações e saldo", "Exports, imports and balance", "Comex Stat (MDIC)", "US$", { periodicidade: "monthly", chaves: [{ id: "exportacao", nome: { pt: "Exportações", en: "Exports" } }, { id: "importacao", nome: { pt: "Importações", en: "Imports" }, negative: true }, { id: "saldo", nome: { pt: "Saldo", en: "Balance" } }] }),
   chart("produtos", "comercio", "horizontal", "Principais produtos exportados (SH4)", "Main exported products (HS4)", "Comex Stat (MDIC)", "US$", { modos: ["value", "percentage"], periodicidade: "monthly" }),
   chart("destinos", "comercio", "horizontal", "Principais destinos de exportação", "Main export destinations", "Comex Stat (MDIC)", "US$", { periodicidade: "monthly" }),
-  ...[
+  ...([
     ["seguranca", "Taxa de homicídios por 100 mil habitantes", "Homicides per 100,000 inhabitants", "Atlas da Violência / SEJUSP", "por 100 mil"],
     ["leitos", "Leitos por mil habitantes", "Hospital beds per 1,000 inhabitants", "DataSUS", "por mil"],
     ["medicos", "Médicos por mil habitantes", "Doctors per 1,000 inhabitants", "DataSUS", "por mil"],
@@ -53,7 +53,7 @@ export const graficos: ChartData[] = [
     ["agua", "Domicílios com água", "Households with water", "SNIS", "%"],
     ["esgoto", "Domicílios com esgoto", "Households with sewerage", "SNIS", "%"],
     ["ifdm", "Índice Firjan de Desenvolvimento Municipal", "Firjan Municipal Development Index", "Firjan", "índice"],
-  ].map(([id, pt, en, fonte, unidade]) => chart(id, "qualidade", "sparkline", pt, en, fonte, unidade)),
+  ] as const).map(([id, pt, en, fonte, unidade]) => chart(id, "qualidade", "sparkline", pt, en, fonte, unidade)),
   chart("clp", "competitividade", "radar", "Pilares da competitividade", "Competitiveness pillars", "CLP", "pontos"),
 ];
 export const recortes = { regionais: [] as string[], polos: ["CINCO", "Cidade Industrial", "Jardim Industrial"] };
@@ -64,7 +64,7 @@ export const documentos = { planoDiretor: "", usoSolo: "" };
 export const historia: Array<{ ano: string; texto: LocalText; fonte: string }> = [];
 export const linhasComparacao: Array<Metadata & { id: string; nome: LocalText; maiorMelhor: boolean; valores: Record<string, number | null> }> = [
   { id: "pib", nome: { pt: "PIB", en: "GDP" }, maiorMelhor: true, valores: { contagem: 45.1 }, ...meta("IBGE", "R$ bi", "annual", "2023") },
-  ...[ ["pibPc", "PIB per capita", "GDP per capita", "IBGE", "R$"], ["pop", "População", "Population", "IBGE", "habitantes"], ["crescimento", "Crescimento do PIB em 10 anos", "GDP growth over 10 years", "IBGE", "%"], ["salario", "Salário médio", "Average wage", "RAIS", "R$"], ["exportacoes", "Exportações", "Exports", "Comex Stat (MDIC)", "US$"], ["ideb", "IDEB", "IDEB", "INEP", "índice"], ["ifdm", "IFDM", "IFDM", "Firjan", "índice"], ["clp", "Ranking de Competitividade (CLP)", "Competitiveness ranking (CLP)", "CLP", "posição"] ].map(([id, pt, en, fonte, unidade]) => ({ id, nome: { pt, en }, maiorMelhor: id !== "clp", valores: {}, ...meta(fonte, unidade) })),
+  ...([ ["pibPc", "PIB per capita", "GDP per capita", "IBGE", "R$"], ["pop", "População", "Population", "IBGE", "habitantes"], ["crescimento", "Crescimento do PIB em 10 anos", "GDP growth over 10 years", "IBGE", "%"], ["salario", "Salário médio", "Average wage", "RAIS", "R$"], ["exportacoes", "Exportações", "Exports", "Comex Stat (MDIC)", "US$"], ["ideb", "IDEB", "IDEB", "INEP", "índice"], ["ifdm", "IFDM", "IFDM", "Firjan", "índice"], ["clp", "Ranking de Competitividade (CLP)", "Competitiveness ranking (CLP)", "CLP", "posição"] ] as const).map(([id, pt, en, fonte, unidade]) => ({ id, nome: { pt, en }, maiorMelhor: id !== "clp", valores: {}, ...meta(fonte, unidade) })),
 ];
 export const fontes = [
   { nome: "IBGE", url: "https://www.ibge.gov.br/", periodicidade: "annual" }, { nome: "Fundação João Pinheiro", url: "https://fjp.mg.gov.br/", periodicidade: "annual" },
