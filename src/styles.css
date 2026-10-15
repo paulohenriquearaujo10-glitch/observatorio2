@@ -38,6 +38,8 @@
   --color-orange-light: var(--orange-light);
   --color-link: var(--link);
   --color-highlight: var(--highlight);
+  --color-chain-present: var(--chain-present);
+  --color-chain-weak: var(--chain-weak);
 }
 
 :root {
@@ -74,6 +76,8 @@
   --chart-teal: #387d79;
   --chart-light-blue: #83a3c2;
   --chart-dark-gray: #505c6a;
+  --chain-present: var(--chart-blue);
+  --chain-weak: oklch(0.76 0.14 85);
 }
 
 @layer base {
@@ -98,6 +102,8 @@
 }
 
 .economy-section { scroll-margin-top: 240px; }
+.companies-section { scroll-margin-top: 260px; }
 @media (max-width: 767px) {
   .economy-section { scroll-margin-top: 390px; }
+  .companies-section { scroll-margin-top: 410px; }
 }
