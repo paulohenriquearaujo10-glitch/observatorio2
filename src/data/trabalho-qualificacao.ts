@@ -54,7 +54,7 @@ export type LaborRow = Metadata & Slice & { id: string; nome: LocalText; valores
 export const salarios: LaborRow[] = [];
 export const rotatividade: LaborRow[] = [];
 export const ocupacoesEmFalta: Array<Metadata & Slice & { id: string; nome: LocalText; valor: number; salario: number | null }> = [];
-export const alcance: Array<Metadata & Slice & { minutos: number; valor: number | null; desocupados: number | null; escolaridade: LocalText | null }> = [30, 45].map(minutos => ({ minutos, valor: null, desocupados: null, escolaridade: null, ...metadata('Censo 2022 / RAIS', 'pessoas', '', 'census') }));
+export const alcance: Array<Metadata & Slice & { minutos: number; valor: number | null; desocupados: number | null; perfilEscolaridade: LocalText | null }> = [30, 45].map(minutos => ({ minutos, valor: null, desocupados: null, perfilEscolaridade: null, ...metadata('Censo 2022 / RAIS', 'pessoas', '', 'census') }));
 export const baciaIndicadores: Array<Metadata & Slice & { id: 'saldoDeslocamento' | 'desocupacao' | 'disponiveis' | 'aprendizes'; valor: number | null }> = [];
 export type Commute = Metadata & Slice & { geoId: string; municipio: string; entram: number | null; saem: number | null };
 export const deslocamentos: Commute[] = [];

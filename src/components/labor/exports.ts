@@ -8,7 +8,7 @@ export function laborRows(filters: Filters = defaultFilters, compare = ['mg', 'b
     ...indicadores.filter(r => r.valor !== null && valid(r) && matchesFilters(r, filters)).map(({ contexto: _c, ...r }) => ({ ...r })),
     ...graficos.map(g => filteredChart(g, filters)).filter(hasChart).flatMap(g => chartRows({ ...g, section: 'mercado' }, g.serie, g.chaves.filter(k => !k.cidade || k.cidade === 'contagem' || compare.includes(k.cidade)).map(k => k.id))),
     ...[...salarios, ...rotatividade].filter(r => valid(r) && matchesFilters(r, filters)).flatMap(({ nome, valores, ...r }) => Object.entries(valores).filter(([cidade, v]) => v !== null && (cidade === 'contagem' || compare.includes(cidade))).map(([cidade, valor]) => ({ ...r, nome: nome.pt, cidade, valor }))),
-    ...alcance.filter(r => r.valor !== null && valid(r) && matchesFilters(r, filters)).map(({ escolaridade: _e, ...r }) => ({ ...r })),
+    ...alcance.filter(r => r.valor !== null && valid(r) && matchesFilters(r, filters)).map(({ perfilEscolaridade: _e, ...r }) => ({ ...r })),
     ...baciaIndicadores.filter(r => r.valor !== null && valid(r) && matchesFilters(r, filters)).map(r => ({ ...r })),
     ...ocupacoesEmFalta.filter(r => valid(r) && matchesFilters(r, filters)).map(({ nome, ...r }) => ({ ...r, nome: nome.pt })),
     ...cursosExemplo.filter(r => valid(r) && matchesFilters(r, filters)).map(({ curso, area, duracao, ...r }) => ({ ...r, curso: curso.pt, area: area.pt, duracao: duracao.pt })),
