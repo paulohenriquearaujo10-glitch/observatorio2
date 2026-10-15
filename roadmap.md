@@ -18,3 +18,10 @@
 - [x] Add tailored-training request simulation, next actions and methodology.
 - [x] Verify language switching, filters, request flow and desktop/mobile layouts.
 - [ ] Publish official jobs, wage, commuting, course and graduate datasets — blocked on confirmed source data not supplied in the brief.
+
+# Infrastructure and Business Climate
+- [ ] Centralize sourced infrastructure schemas, bilingual text and the shared Eixo 4 question.
+- [ ] Build filters, conditional logistics/utilities/property/cost/licensing/security blocks, illustrative maps and exports.
+- [ ] Add source-gated operating estimates, next actions and methodology.
+- [ ] Verify data rules and desktop/mobile page interactions.
+- [ ] Publish official indicators, tariffs, tax rates, property and licensing records — blocked on verified datasets not supplied in the brief.
