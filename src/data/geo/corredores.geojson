@@ -1,0 +1,1 @@
+{"type": "FeatureCollection", "features": [{"type": "Feature", "properties": {"nome": "Corredor ilustrativo", "ilustrativo": true, "area": null, "populacao": null, "empresas": null, "empregos": null}, "geometry": {"type": "LineString", "coordinates": [[-44.11, -19.97], [-44.01, -19.93]]}}]}
