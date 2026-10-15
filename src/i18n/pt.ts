@@ -1,4 +1,7 @@
+import { economiaPt } from "./economia";
+
 export const pt = {
+  economy: economiaPt,
   brand: { name: "Observatório de Contagem", tagline: "Invest in Contagem", org: "Prefeitura de Contagem · SUPGEST" },
   nav: { home: "Início", panels: "Painéis", map: "Mapa de Oportunidades", data: "Dados e Fontes", contact: "Fale com a SUPGEST", menu: "Abrir menu", methodology: "Metodologia" },
   panels: [

@@ -1,6 +1,8 @@
 import type { Dict } from "./pt";
+import { economiaEn } from "./economia";
 
 export const en: Dict = {
+  economy: economiaEn,
   brand: { name: "Contagem Observatory", tagline: "Invest in Contagem", org: "City of Contagem · SUPGEST" },
   nav: { home: "Home", panels: "Dashboards", map: "Opportunity Map", data: "Data & Sources", contact: "Talk to SUPGEST", menu: "Open menu", methodology: "Methodology" },
   panels: [
