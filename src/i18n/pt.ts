@@ -1,18 +1,20 @@
 import { economiaPt } from "./economia";
 import { empresasPt } from "./empresas";
 import { trabalhoPt } from "./trabalho";
+import { infraestruturaPt } from "./infraestrutura";
 
 export const pt = {
   economy: economiaPt,
   companies: empresasPt,
   labor: trabalhoPt,
+  infrastructure: infraestruturaPt,
   brand: { name: "Observatório de Contagem", tagline: "Invest in Contagem", org: "Prefeitura de Contagem · SUPGEST" },
   nav: { home: "Início", panels: "Painéis", map: "Mapa de Oportunidades", data: "Dados e Fontes", contact: "Fale com a SUPGEST", menu: "Abrir menu", methodology: "Metodologia" },
   panels: [
     { slug: "/economia-territorio", name: "Economia e Território", q: "O mercado é grande e está crescendo?" },
     { slug: "/empresas", name: "Empresas e Cadeias", q: empresasPt.question },
     { slug: "/trabalho", name: "Trabalho e Qualificação", q: trabalhoPt.question },
-    { slug: "/infraestrutura", name: "Infraestrutura e Ambiente de Negócios", q: "Tenho infraestrutura e em quanto tempo licencio?" },
+    { slug: "/infraestrutura", name: "Infraestrutura e Ambiente de Negócios", q: infraestruturaPt.question },
     { slug: "/investir", name: "Investir", q: "O que está disponível agora e com que incentivo?" },
     { slug: "/inovacao", name: "Inovação", q: "Há tecnologia e parceiros para inovar?" },
     { slug: "/pequenos-negocios", name: "Pequenos Negócios", q: "Como abrir e crescer um negócio aqui?" },

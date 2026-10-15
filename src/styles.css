@@ -104,8 +104,10 @@
 .economy-section { scroll-margin-top: 240px; }
 .companies-section { scroll-margin-top: 260px; }
 .labor-section { scroll-margin-top: 410px; }
+.infrastructure-section { scroll-margin-top: 255px; }
 @media (max-width: 767px) {
   .economy-section { scroll-margin-top: 390px; }
   .companies-section { scroll-margin-top: 410px; }
   .labor-section { scroll-margin-top: 490px; }
+  .infrastructure-section { scroll-margin-top: 465px; }
 }

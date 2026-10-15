@@ -2,18 +2,20 @@ import type { Dict } from "./pt";
 import { economiaEn } from "./economia";
 import { empresasEn } from "./empresas";
 import { trabalhoEn } from "./trabalho";
+import { infraestruturaEn } from "./infraestrutura";
 
 export const en: Dict = {
   economy: economiaEn,
   companies: empresasEn,
   labor: trabalhoEn,
+  infrastructure: infraestruturaEn,
   brand: { name: "Contagem Observatory", tagline: "Invest in Contagem", org: "City of Contagem · SUPGEST" },
   nav: { home: "Home", panels: "Dashboards", map: "Opportunity Map", data: "Data & Sources", contact: "Talk to SUPGEST", menu: "Open menu", methodology: "Methodology" },
   panels: [
     { slug: "/economia-territorio", name: "Economy & Territory", q: "Is the market large and growing?" },
     { slug: "/empresas", name: "Companies & Supply Chains", q: empresasEn.question },
     { slug: "/trabalho", name: "Labor & Skills", q: trabalhoEn.question },
-    { slug: "/infraestrutura", name: "Infrastructure & Business Climate", q: "Is there infrastructure and how fast can I get permits?" },
+    { slug: "/infraestrutura", name: "Infrastructure & Business Climate", q: infraestruturaEn.question },
     { slug: "/investir", name: "Invest", q: "What is available now and with what incentives?" },
     { slug: "/inovacao", name: "Innovation", q: "Are there technology and partners to innovate?" },
     { slug: "/pequenos-negocios", name: "Small Business", q: "How do I start and grow a business here?" },
