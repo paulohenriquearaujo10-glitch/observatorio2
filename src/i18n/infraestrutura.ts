@@ -7,7 +7,7 @@ export const infraestruturaPt = {
   simulator: 'Simular o custo do seu projeto', area: 'Área (m²)', energy: 'Energia (MWh/mês)', water: 'Água (m³/mês)', employees: 'Número de empregados', revenue: 'Faturamento mensal (R$)', calculate: 'Calcular estimativa', total: 'Total mensal estimado', result: 'Estimativa mensal', pdf: 'Baixar simulação (PDF)', warning: 'Estimativa para referência; não substitui consulta oficial.', payrollNote: 'Folha baseada no salário médio do estoque de trabalhadores; não inclui encargos e benefícios.',
   costLabels: { iss: 'ISS', iptu: 'IPTU', energia: 'Energia', agua: 'Água', folha: 'Folha de pagamento' },
   investor: 'Projeto de grande porte?', investorText: 'A SUPGEST acompanha o licenciamento com você.', mapAction: 'Ver terrenos e galpões no Mapa de Oportunidades', projects: 'Ver projetos estruturantes', ready: 'Selo Área Pronta Contagem', readyText: 'Terrenos com estudos ambientais, topografia, zoneamento, energia e água confirmados.',
-  stage: 'Estágio', expected: 'Previsão', back: 'Trabalho e Qualificação', nextPanel: 'Próximo: Investir',
+  stage: 'Estágio', expected: 'Previsão', back: 'Trabalho e Qualificação', nextPanel: 'Próximo: Investir', unit: 'Unidade',
   method: 'O ISS usa a alíquota da atividade selecionada. O IPTU é estimado pelo valor venal por m² × área × alíquota anual ÷ 12. Energia e água usam consumo × tarifa. A folha usa número de empregados × salário médio mensal do painel Trabalho e Qualificação. Apenas parcelas com fonte e datas confirmadas entram no resultado; não inclui encargos, benefícios ou demais despesas.',
   sourceUpdates: 'As datas exibidas pertencem aos registros publicados, não à consulta dos portais. Dados de galpões dependem de consultoria identificada e trimestre de referência.',
 };
@@ -20,7 +20,7 @@ export const infraestruturaEn: typeof infraestruturaPt = {
   simulator: 'Estimate your project’s operating costs', area: 'Area (m²)', energy: 'Energy (MWh/month)', water: 'Water (m³/month)', employees: 'Number of employees', revenue: 'Monthly revenue (BRL)', calculate: 'Calculate estimate', total: 'Estimated monthly total', result: 'Monthly estimate', pdf: 'Download estimate (PDF)', warning: 'Estimate for reference; not a substitute for official consultation.', payrollNote: 'Payroll uses the workforce-stock average wage; excludes payroll charges and benefits.',
   costLabels: { iss: 'ISS', iptu: 'IPTU', energia: 'Energy', agua: 'Water', folha: 'Payroll' },
   investor: 'Planning a major project?', investorText: 'SUPGEST supports you throughout the licensing process.', mapAction: 'View land and warehouses on the Opportunity Map', projects: 'View strategic projects', ready: 'Área Pronta Contagem certification', readyText: 'Sites with confirmed environmental studies, topography, zoning, energy and water.',
-  stage: 'Stage', expected: 'Expected completion', back: 'Labor & Skills', nextPanel: 'Next: Invest',
+  stage: 'Stage', expected: 'Expected completion', back: 'Labor & Skills', nextPanel: 'Next: Invest', unit: 'Unit',
   method: 'ISS uses the selected activity’s tax rate. IPTU is estimated as assessed value per m² × area × annual rate ÷ 12. Energy and water use consumption × tariff. Payroll uses employee count × the monthly stock wage from Labor & Skills. Only components with confirmed sources and dates enter the result; payroll charges, benefits and other expenses are excluded.',
   sourceUpdates: 'Displayed dates refer to published records, not portal access. Warehouse data require a named consultancy and reference quarter.',
 };

@@ -1,6 +1,7 @@
 import { comparadores, comparacaoPadrao, recortes, distancias, type LocalText, type Metadata, type ChartData } from './economia-territorio';
-import { indicadores as laborIndicators, sourced } from './trabalho-qualificacao';
-export { comparadores, comparacaoPadrao, sourced, recortes, distancias };
+import { indicadores as laborIndicators } from './trabalho-qualificacao';
+export { comparadores, comparacaoPadrao, recortes, distancias };
+export function sourced(row: Pick<Metadata, 'fonte' | 'dataReferencia' | 'atualizadoEm'>) { return Boolean(row.fonte.trim() && row.dataReferencia.trim() && row.atualizadoEm.trim()); }
 export const atualizadoEm = '15/10/2026';
 export type SectionId = 'logistica' | 'utilidades' | 'imoveis' | 'custos' | 'licencas' | 'seguranca';
 export const sectionOrder: SectionId[] = ['logistica', 'utilidades', 'imoveis', 'custos', 'licencas', 'seguranca'];
@@ -80,4 +81,4 @@ export function calculateCosts(input: SimulationInput, data: SimulationData = si
   if (data.salario && sourced(data.salario) && data.salario.valor !== null) result.push({ id: 'folha', valor: input.empregados * data.salario.valor, fontes: [data.salario] });
   return result;
 }
-export function canSimulate(filters: Filters = defaultFilters) { return atividades.some(a => calculateCosts({ atividade: a.id, area: 1, energia: 1, agua: 1, empregados: 1, faturamento: 1 }, simulationData(filters)).length > 0); }
+export function canSimulate(filters: Filters = defaultFilters) { return atividades.filter(a => filters.atividade === 'all' || a.id === filters.atividade).some(a => calculateCosts({ atividade: a.id, area: 1, energia: 1, agua: 1, empregados: 1, faturamento: 1 }, simulationData(filters)).length > 0); }
