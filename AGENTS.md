@@ -13,3 +13,6 @@
 - Keep dashboard translations in the i18n files and use the existing language provider, so the shared shell and dashboard switch together.
 - Load Leaflet dynamically after hydration; example GeoJSON lives in `src/data/geo/` and must be labeled illustrative to avoid misrepresenting official geography.
 - Use reusable data-driven dashboard charts and browser-only CSV/XLSX/PNG exports, so empty datasets stay hidden without server dependencies.
+- Keep Companies and Supply Chains statistics, cases, chain objects and source metadata in `src/data/empresas-cadeias.ts`, with verified public supplier records in `src/data/empresas-exemplo.ts`; this separates official statistics from searchable corporate records.
+- Companies filters apply only to records with matching dimensions; label unsegmented municipal totals and hide unavailable breakdowns to prevent misleading filtered results.
+- Company cases open in accessible dialogs, and company maps are lazy-loaded after hydration only when territorial data exists; this avoids empty geographic and case views.
