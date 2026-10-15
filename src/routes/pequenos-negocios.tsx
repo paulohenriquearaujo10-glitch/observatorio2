@@ -8,6 +8,8 @@ export const Route = createFileRoute("/pequenos-negocios")({
       { name: "description", content: "Como abrir e crescer um pequeno negócio em Contagem." },
       { property: "og:title", content: "Pequenos Negócios · Observatório de Contagem" },
       { property: "og:description", content: "Como abrir e crescer um pequeno negócio em Contagem." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: () => <WipPage title="Pequenos Negócios" />,

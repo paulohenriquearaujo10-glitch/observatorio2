@@ -8,6 +8,8 @@ export const Route = createFileRoute("/contato")({
       { name: "description", content: "Contato da Superintendência de Gestão da Prefeitura de Contagem." },
       { property: "og:title", content: "Fale com a SUPGEST · Observatório de Contagem" },
       { property: "og:description", content: "Contato da Superintendência de Gestão da Prefeitura de Contagem." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: () => <WipPage title="Fale com a SUPGEST" />,

@@ -8,6 +8,8 @@ export const Route = createFileRoute("/empresas")({
       { name: "description", content: "Empresas instaladas e cadeias produtivas de Contagem." },
       { property: "og:title", content: "Empresas e Cadeias · Observatório de Contagem" },
       { property: "og:description", content: "Empresas instaladas e cadeias produtivas de Contagem." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: () => <WipPage title="Empresas e Cadeias" />,
