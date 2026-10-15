@@ -10,33 +10,167 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as DadosRouteImport } from './routes/dados'
+import { Route as EconomiaTerritorioRouteImport } from './routes/economia-territorio'
+import { Route as EmpresasRouteImport } from './routes/empresas'
+import { Route as InfraestruturaRouteImport } from './routes/infraestrutura'
+import { Route as InovacaoRouteImport } from './routes/inovacao'
+import { Route as InvestirRouteImport } from './routes/investir'
+import { Route as MapaRouteImport } from './routes/mapa'
+import { Route as PequenosNegociosRouteImport } from './routes/pequenos-negocios'
+import { Route as TrabalhoRouteImport } from './routes/trabalho'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContatoRoute = ContatoRouteImport.update({
+  id: '/contato',
+  path: '/contato',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DadosRoute = DadosRouteImport.update({
+  id: '/dados',
+  path: '/dados',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EconomiaTerritorioRoute = EconomiaTerritorioRouteImport.update({
+  id: '/economia-territorio',
+  path: '/economia-territorio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmpresasRoute = EmpresasRouteImport.update({
+  id: '/empresas',
+  path: '/empresas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InfraestruturaRoute = InfraestruturaRouteImport.update({
+  id: '/infraestrutura',
+  path: '/infraestrutura',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InovacaoRoute = InovacaoRouteImport.update({
+  id: '/inovacao',
+  path: '/inovacao',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InvestirRoute = InvestirRouteImport.update({
+  id: '/investir',
+  path: '/investir',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MapaRoute = MapaRouteImport.update({
+  id: '/mapa',
+  path: '/mapa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PequenosNegociosRoute = PequenosNegociosRouteImport.update({
+  id: '/pequenos-negocios',
+  path: '/pequenos-negocios',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrabalhoRoute = TrabalhoRouteImport.update({
+  id: '/trabalho',
+  path: '/trabalho',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
+  '/dados': typeof DadosRoute
+  '/economia-territorio': typeof EconomiaTerritorioRoute
+  '/empresas': typeof EmpresasRoute
+  '/infraestrutura': typeof InfraestruturaRoute
+  '/inovacao': typeof InovacaoRoute
+  '/investir': typeof InvestirRoute
+  '/mapa': typeof MapaRoute
+  '/pequenos-negocios': typeof PequenosNegociosRoute
+  '/trabalho': typeof TrabalhoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
+  '/dados': typeof DadosRoute
+  '/economia-territorio': typeof EconomiaTerritorioRoute
+  '/empresas': typeof EmpresasRoute
+  '/infraestrutura': typeof InfraestruturaRoute
+  '/inovacao': typeof InovacaoRoute
+  '/investir': typeof InvestirRoute
+  '/mapa': typeof MapaRoute
+  '/pequenos-negocios': typeof PequenosNegociosRoute
+  '/trabalho': typeof TrabalhoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
+  '/dados': typeof DadosRoute
+  '/economia-territorio': typeof EconomiaTerritorioRoute
+  '/empresas': typeof EmpresasRoute
+  '/infraestrutura': typeof InfraestruturaRoute
+  '/inovacao': typeof InovacaoRoute
+  '/investir': typeof InvestirRoute
+  '/mapa': typeof MapaRoute
+  '/pequenos-negocios': typeof PequenosNegociosRoute
+  '/trabalho': typeof TrabalhoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/contato'
+    | '/dados'
+    | '/economia-territorio'
+    | '/empresas'
+    | '/infraestrutura'
+    | '/inovacao'
+    | '/investir'
+    | '/mapa'
+    | '/pequenos-negocios'
+    | '/trabalho'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/contato'
+    | '/dados'
+    | '/economia-territorio'
+    | '/empresas'
+    | '/infraestrutura'
+    | '/inovacao'
+    | '/investir'
+    | '/mapa'
+    | '/pequenos-negocios'
+    | '/trabalho'
+  id:
+    | '__root__'
+    | '/'
+    | '/contato'
+    | '/dados'
+    | '/economia-territorio'
+    | '/empresas'
+    | '/infraestrutura'
+    | '/inovacao'
+    | '/investir'
+    | '/mapa'
+    | '/pequenos-negocios'
+    | '/trabalho'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContatoRoute: typeof ContatoRoute
+  DadosRoute: typeof DadosRoute
+  EconomiaTerritorioRoute: typeof EconomiaTerritorioRoute
+  EmpresasRoute: typeof EmpresasRoute
+  InfraestruturaRoute: typeof InfraestruturaRoute
+  InovacaoRoute: typeof InovacaoRoute
+  InvestirRoute: typeof InvestirRoute
+  MapaRoute: typeof MapaRoute
+  PequenosNegociosRoute: typeof PequenosNegociosRoute
+  TrabalhoRoute: typeof TrabalhoRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +182,91 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contato': {
+      id: '/contato'
+      path: '/contato'
+      fullPath: '/contato'
+      preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dados': {
+      id: '/dados'
+      path: '/dados'
+      fullPath: '/dados'
+      preLoaderRoute: typeof DadosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/economia-territorio': {
+      id: '/economia-territorio'
+      path: '/economia-territorio'
+      fullPath: '/economia-territorio'
+      preLoaderRoute: typeof EconomiaTerritorioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/empresas': {
+      id: '/empresas'
+      path: '/empresas'
+      fullPath: '/empresas'
+      preLoaderRoute: typeof EmpresasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/infraestrutura': {
+      id: '/infraestrutura'
+      path: '/infraestrutura'
+      fullPath: '/infraestrutura'
+      preLoaderRoute: typeof InfraestruturaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/inovacao': {
+      id: '/inovacao'
+      path: '/inovacao'
+      fullPath: '/inovacao'
+      preLoaderRoute: typeof InovacaoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/investir': {
+      id: '/investir'
+      path: '/investir'
+      fullPath: '/investir'
+      preLoaderRoute: typeof InvestirRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mapa': {
+      id: '/mapa'
+      path: '/mapa'
+      fullPath: '/mapa'
+      preLoaderRoute: typeof MapaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pequenos-negocios': {
+      id: '/pequenos-negocios'
+      path: '/pequenos-negocios'
+      fullPath: '/pequenos-negocios'
+      preLoaderRoute: typeof PequenosNegociosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/trabalho': {
+      id: '/trabalho'
+      path: '/trabalho'
+      fullPath: '/trabalho'
+      preLoaderRoute: typeof TrabalhoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContatoRoute: ContatoRoute,
+  DadosRoute: DadosRoute,
+  EconomiaTerritorioRoute: EconomiaTerritorioRoute,
+  EmpresasRoute: EmpresasRoute,
+  InfraestruturaRoute: InfraestruturaRoute,
+  InovacaoRoute: InovacaoRoute,
+  InvestirRoute: InvestirRoute,
+  MapaRoute: MapaRoute,
+  PequenosNegociosRoute: PequenosNegociosRoute,
+  TrabalhoRoute: TrabalhoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
