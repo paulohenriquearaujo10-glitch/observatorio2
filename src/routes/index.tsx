@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState, type FormEvent } from "react";
-import { ArrowRight, Download, FileText, Mail, Phone, Sheet, Check, Award } from "lucide-react";
+import { BarChart3, ArrowRight, Download, FileText, Mail, Phone, Sheet, Check, Award } from "lucide-react";
 import { toast } from "sonner";
 import { useI18n, fmt } from "@/i18n";
 import {
@@ -88,7 +88,7 @@ function Kpis() {
     <Section title={t.kpi.title}>
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {visible.map((k) => {
-          const Icon = icons[k.icon];
+          const Icon = icons[k.icon] ?? BarChart3;
           return (
             <article key={k.id} className={`${card} flex flex-col`}>
               <Icon className="h-7 w-7 text-orange" aria-hidden />
@@ -115,7 +115,7 @@ function Why() {
       <Section title={t.why.title}>
         <div className="grid gap-5 md:grid-cols-3">
           {t.why.items.map((it, i) => {
-            const d = nums[i];
+            const d = nums[i]!;
             return (
               <article key={it.q} className={`${card} flex flex-col`}>
                 <h3 className="text-xl font-bold">{it.q}</h3>
@@ -166,7 +166,7 @@ function Compare() {
       const entries = cols.map((c) => [c.id, r.valores[c.id]?.num] as const).filter((e) => e[1] !== undefined);
       if (entries.length < 2) continue;
       entries.sort((a, b) => (r.maiorMelhor ? b[1]! - a[1]! : a[1]! - b[1]!));
-      m[r.id] = entries[0][0];
+      m[r.id] = entries[0]?.[0];
     }
     return m;
   }, [rows, cols]);
@@ -243,7 +243,7 @@ function Sectors() {
       <Section title={t.sectors.title}>
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {setores.slice(0, 6).map((s) => {
-            const Icon = icons[s.icon];
+            const Icon = icons[s.icon] ?? BarChart3;
             const nums = s.numeros.filter((n) => temValor(n.dado));
             return (
               <article key={s.slug} className={`${card} flex flex-col`}>
@@ -280,7 +280,7 @@ function Explore() {
     <Section title={t.explore.title}>
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {t.panels.map((p, i) => {
-          const Icon = panelIcons[i];
+          const Icon = panelIcons[i] ?? BarChart3;
           return (
             <a key={p.slug} href={p.slug} className={`${card} group flex flex-col transition hover:-translate-y-1 hover:border-orange hover:shadow-lg`}>
               <div className="flex items-center justify-between">

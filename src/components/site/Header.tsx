@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X, BarChart3 } from "lucide-react";
 import { useI18n } from "@/i18n";
 import { Button } from "@/components/ui/button";
 import { BrandMark, LangSwitch, panelIcons } from "./common";
@@ -28,7 +28,7 @@ export function Header() {
               <div className="absolute left-1/2 top-full w-[420px] -translate-x-1/2 pt-3">
                 <ul className="rounded-2xl border bg-card p-2 text-card-foreground shadow-xl">
                   {t.panels.map((p, i) => {
-                    const Icon = panelIcons[i];
+                    const Icon = panelIcons[i] ?? BarChart3;
                     return (
                       <li key={p.slug}>
                         <a href={p.slug} className="flex gap-3 rounded-xl p-3 hover:bg-muted">
