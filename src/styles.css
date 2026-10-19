@@ -115,3 +115,16 @@
 @media (max-width: 767px) { .investir-section { scroll-margin-top: 420px; } }
 .inovacao-section { scroll-margin-top: 220px; }
 @media (max-width: 767px) { .inovacao-section { scroll-margin-top: 380px; } }
+.smallbiz-section { scroll-margin-top: 90px; }
+@media print {
+  body:has(.smallbiz-guide) > * { box-shadow: none; }
+  body:has(.smallbiz-guide) header, body:has(.smallbiz-guide) footer,
+  .smallbiz-no-print, body:has(.smallbiz-guide) [data-radix-popper-content-wrapper] { display: none !important; }
+  .smallbiz-guide { font-size: 11pt; }
+  .smallbiz-guide section, .smallbiz-guide > div { background: var(--card); color: var(--foreground); }
+  .smallbiz-guide .text-navy-muted, .smallbiz-guide .text-orange-light { color: var(--foreground); }
+  .smallbiz-guide li, .smallbiz-guide [data-state] { break-inside: avoid; }
+  .smallbiz-guide button { color: inherit; }
+  .smallbiz-guide section { padding-top: 20px; padding-bottom: 20px; }
+  .smallbiz-guide a { text-decoration: underline; }
+}
