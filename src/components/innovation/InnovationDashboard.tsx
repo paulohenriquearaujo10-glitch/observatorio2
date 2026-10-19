@@ -10,12 +10,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { Source } from '@/components/economy/ChartPanel';
-import { CompanyTable } from '@/components/companies/CompanyTable';
-import { downloadCsv, type ExportRow } from '@/components/economy/exports';
+import { downloadCsv } from '@/components/economy/exports';
 import { useI18n, fmt } from '@/i18n';
 import {
   areasTecnologicas, casosVerdes, defaultFilters, editaisAbertos, fontes, isFiltered, jornada, kpiPublished, kpisInovacao, laboratorios,
-  localizacoes, parceirosFiltrados, sectionOrder, startupsContagem, tiposParceiro, ultimaAtualizacao, type Filters, type Parceiro, type SectionId,
+  localizacoes, parceirosFiltrados, sectionOrder, tiposParceiro, ultimaAtualizacao, type Filters, type Parceiro, type SectionId,
 } from '@/data/inovacao';
 
 function Section({ id, title, subtitle, children }: { id: SectionId; title: string; subtitle: string; children: ReactNode }) {
@@ -38,7 +37,6 @@ export function InnovationDashboard() {
   };
   const sections = sectionOrder.filter(id => has[id]);
   const jump = (id: string) => document.getElementById(`inovacao-${id}`)?.scrollIntoView({ behavior: 'smooth' });
-  const rows = (list: Parceiro[]): Array<ExportRow & Parceiro> => list.map(p => ({ ...p, nomeCol: p.nome, tipoCol: c.tipos[p.tipo], cidadeCol: p.cidade, localCol: c.locais[p.local], siteCol: p.site } as unknown as ExportRow & Parceiro));
   const exportRows = () => all.map(p => ({ [c.cols.nome]: p.nome, [c.cols.tipo]: c.tipos[p.tipo], [c.cols.cidade]: p.cidade, [c.cols.local]: c.locais[p.local], [c.cols.site]: p.site, [t.source.fonte]: p.fonte, [t.source.dados]: p.dataReferencia, [t.source.atualizado]: p.atualizadoEm }));
   const xlsx = async () => { const X = await import('xlsx'); const wb = X.utils.book_new(); X.utils.book_append_sheet(wb, X.utils.json_to_sheet(exportRows()), 'Parceiros'); X.writeFile(wb, 'parceiros-inovacao.xlsx'); };
   const submit = (e: FormEvent<HTMLFormElement>) => { e.preventDefault(); const d = new FormData(e.currentTarget); if (['empresa', 'contato', 'descricao'].some(k => !String(d.get(k) ?? '').trim())) { toast.error(c.form.required); return; } setSent(true); e.currentTarget.reset(); };
@@ -85,7 +83,6 @@ export function InnovationDashboard() {
     {has.universidades && <Section id="universidades" title={c.sections.universidades} subtitle={c.subtitles.universidades}>{cards(bySec('universidades'))}</Section>}
 
     <Section id="startups" title={c.sections.startups} subtitle={c.subtitles.startups}>
-      {startupsContagem.length > 0 && null}
       <h3 className="mb-4 text-xl font-bold">{c.hubs}</h3>{cards(bySec('startups'))}
       <div className="mt-10 rounded-lg border-l-4 border-orange bg-highlight p-6">
         <h3 className="text-xl font-bold">{c.challengeTitle}</h3><p className="mt-2 max-w-3xl text-sm">{c.challengeText}</p>
@@ -121,6 +118,5 @@ export function InnovationDashboard() {
       <p className="mb-3 text-sm">{c.agreement}</p><p className="mb-4 text-sm text-muted-foreground">{c.hidden}</p>
       <ul className="grid gap-2 text-sm sm:grid-cols-2">{fontes.map(f => <li key={f.nome} className="rounded border bg-card p-3"><a href={f.url} target="_blank" rel="noreferrer" className="font-semibold text-link hover:underline">{f.nome}</a><span className="block text-xs text-muted-foreground">{c.periodicity}: {f.periodicidade[lang]}</span></li>)}</ul>
     </AccordionContent></AccordionItem></Accordion></div>
-    {false && <CompanyTable title="" id="" rows={rows([])} columns={[]} />}
   </div>;
 }
