@@ -25,3 +25,4 @@
 - Keep Investir statistics, incentives, projects, theses and cases in `src/data/investir.ts` and illustrative property records in `src/data/imoveis-exemplo.ts`; KPIs and cases reuse home/Companies fields so each number has one value.
 - Incentives publish only with name, legal basis, agency and source dates; Investir filters drive the opportunity count, list and map together.
 - Keep Innovation partners, KPIs, labs, calls and green cases in `src/data/inovacao.ts`; partner cards publish only name, official site and source dates until details are confirmed, preventing invented offers or distances.
+- Keep Small Business guide content and bilingual copy in `src/data/pequenos-negocios.ts`, re-exporting copy through i18n; source-gate numeric/course/cluster records and reuse Economy distances to prevent inconsistent or fabricated guidance.

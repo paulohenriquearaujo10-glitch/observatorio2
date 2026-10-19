@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { WipPage } from "@/components/site/WipPage";
+import { SmallBusinessGuide } from "@/components/smallbiz/SmallBusinessGuide";
 
 export const Route = createFileRoute("/pequenos-negocios")({
   head: () => ({
@@ -12,5 +12,5 @@ export const Route = createFileRoute("/pequenos-negocios")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: () => <WipPage title="Pequenos Negócios" />,
+  component: SmallBusinessGuide,
 });
