@@ -34,6 +34,6 @@
 - [ ] Números-chave, laboratórios, startups de Contagem, editais, propriedade intelectual, transição verde e mapa — aguardando dados com fonte e datas
 
 ## Eixo 7 · Pequenos Negócios
-- [ ] Criar guia bilíngue, caminhos de formalização, glossário, atendimento, capacitação, vantagens e perguntas frequentes.
-- [ ] Integrar pergunta no menu e início, impressão limpa e verificar navegação no computador e celular.
+- [x] Criar guia bilíngue, caminhos de formalização, glossário, atendimento, capacitação, vantagens e perguntas frequentes.
+- [x] Integrar pergunta no menu e início, impressão limpa e verificar navegação no computador e celular.
 - [ ] Publicar contatos locais, cursos, aglomerados, fotos e mapas — aguardando informações verificadas e coordenadas.
