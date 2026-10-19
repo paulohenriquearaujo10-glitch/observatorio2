@@ -22,3 +22,5 @@
 - Keep infrastructure statistics, tariffs, tax rates, projects and layer metadata in `src/data/infraestrutura.ts`; reuse canonical Economy distances and Labor stock wages instead of copying figures, so repeated numbers remain consistent.
 - Infrastructure filters publish matching dimensions only; calculators and exports consume the same sourced tariff/tax records and omit unavailable cost components, preventing fabricated estimates.
 - Infrastructure maps are hydration-only lazy imports with illustrative example layers separated from official data; source-gated sections and simulator actions remain hidden when records are unavailable.
+- Keep Investir statistics, incentives, projects, theses and cases in `src/data/investir.ts` and illustrative property records in `src/data/imoveis-exemplo.ts`; KPIs and cases reuse home/Companies fields so each number has one value.
+- Incentives publish only with name, legal basis, agency and source dates; Investir filters drive the opportunity count, list and map together.
