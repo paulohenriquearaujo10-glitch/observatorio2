@@ -30,7 +30,7 @@ export const en: Dict = {
   hero: {
     eyebrow: "Investment Profile · 2026",
     title: "Contagem: industry, logistics and market in the heart of Minas Gerais",
-    sub: "The data your company needs to decide where to invest, with sources, dates and comparison with competing cities.",
+    sub: "The data you need to decide where to invest, with sources, dates and comparison with competing cities.",
     ctaMap: "See opportunities on the map",
     ctaPdf: "Download profile (PDF)",
     trust: "Data updated on {d} · Official sources: IBGE, RAIS, Caged, Federal Revenue",
@@ -41,11 +41,11 @@ export const en: Dict = {
     ctx: { pib: "{v} largest GDP in Minas Gerais", populacao: "{v}", empregos: "{v}", empresas: "{v}", investimento: "{v}", localizacao: "{v}" },
   },
   why: {
-    title: "The three questions every investor asks",
+    title: "The three most-searched indicators",
     items: [
-      { q: "Is there a workforce?", a: "A consolidated industrial base and technical training in town, with SENAI, SENAC and SENAT units.", link: "See Labor dashboard", to: "/trabalho" },
-      { q: "Is there land ready?", a: "Mapped lots and warehouses, with zoning and infrastructure described in each listing.", link: "See on the Map", to: "/mapa", unit: "mapped lots" },
-      { q: "How fast can I get permits?", a: "Average permit and licensing times tracked by the City.", link: "See Infrastructure dashboard", to: "/infraestrutura", unit: "days on average" },
+      { q: "Workforce availability", a: "A consolidated industrial base and technical training in town, with SENAI, SENAC and SENAT units.", link: "See Labor dashboard", to: "/trabalho" },
+      { q: "Types of areas available", a: "Mapped lots and warehouses, with zoning and infrastructure described in each listing.", link: "See on the Map", to: "/mapa", unit: "mapped lots" },
+      { q: "Average licensing time", a: "Average permit and licensing times tracked by the City.", link: "See Infrastructure dashboard", to: "/infraestrutura", unit: "days on average" },
     ],
     who: "Who is already here",
     whoLink: "See companies and supply chains",
@@ -53,7 +53,7 @@ export const en: Dict = {
   },
   compare: {
     title: "Contagem next to the alternatives",
-    sub: "Investors choose between cities. We show where Contagem leads and where it doesn't.",
+    sub: "Discover where Contagem leads in attracting investment",
     indicator: "Indicator",
     rows: { pib: "GDP", pibPc: "GDP per capita", pop: "Population", empregos: "Formal jobs", salario: "Average wage", empresas: "Active companies", crescEmprego: "Job growth (12 months)", clp: "Competitiveness ranking (CLP)" },
     with: "Compare with",
@@ -61,7 +61,7 @@ export const en: Dict = {
     best: "Best value",
     pending: "Data for other cities being consolidated.",
   },
-  sectors: { title: "Sectors where Contagem is strong", examples: "Companies on site", cta: "See sector thesis" },
+  sectors: { title: "Main economic sectors of Contagem", examples: "Companies on site", cta: "See sector thesis" },
   explore: { title: "Go deeper by topic", axis: "Axis", open: "Open dashboard" },
   map: {
     title: "Find the right place for your company",

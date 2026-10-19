@@ -14,7 +14,7 @@ export const pt = {
   invest: investirPt,
   innovation: inovacaoPt,
   smallBiz: pequenosPt,
-  brand: { name: "Observatório de Contagem", tagline: "Invest in Contagem", org: "Prefeitura de Contagem · SUPGEST" },
+  brand: { name: "Observatório de Contagem", tagline: "Invista em Contagem", org: "Prefeitura de Contagem · SUPGEST" },
   nav: { home: "Início", panels: "Painéis", map: "Mapa de Oportunidades", data: "Dados e Fontes", contact: "Fale com a SUPGEST", menu: "Abrir menu", methodology: "Metodologia" },
   panels: [
     { slug: "/economia-territorio", name: "Economia e Território", q: "O mercado é grande e está crescendo?" },
@@ -29,7 +29,7 @@ export const pt = {
   hero: {
     eyebrow: "Perfil de Investimento · 2026",
     title: "Contagem: indústria, logística e mercado no coração de Minas Gerais",
-    sub: "Os dados de que sua empresa precisa para decidir onde investir, com fonte, data e comparação com as cidades concorrentes.",
+    sub: "Os dados de que você precisa para decidir onde investir, com fonte, data e comparação com as cidades concorrentes.",
     ctaMap: "Ver oportunidades no mapa",
     ctaPdf: "Baixar perfil em PDF",
     trust: "Dados atualizados em {d} · Fontes oficiais: IBGE, RAIS, Caged, Receita Federal",
@@ -40,11 +40,11 @@ export const pt = {
     ctx: { pib: "{v} maior PIB de Minas Gerais", populacao: "{v}", empregos: "{v}", empresas: "{v}", investimento: "{v}", localizacao: "{v}" },
   },
   why: {
-    title: "As três perguntas que um investidor faz",
+    title: "Os três indicadores mais buscados",
     items: [
-      { q: "Tenho mão de obra?", a: "Base industrial consolidada e formação técnica na cidade, com unidades de SENAI, SENAC e SENAT.", link: "Ver painel Trabalho", to: "/trabalho" },
-      { q: "Tenho terreno pronto?", a: "Lotes e galpões mapeados, com zoneamento e infraestrutura descritos em cada ficha.", link: "Ver no Mapa", to: "/mapa", unit: "lotes mapeados" },
-      { q: "Em quanto tempo licencio?", a: "Prazos médios de alvará e licenciamento acompanhados pela Prefeitura.", link: "Ver painel Infraestrutura", to: "/infraestrutura", unit: "dias em média" },
+      { q: "Disponibilidade de mão de obra", a: "Base industrial consolidada e formação técnica na cidade, com unidades de SENAI, SENAC e SENAT.", link: "Ver painel Trabalho", to: "/trabalho" },
+      { q: "Tipos de áreas disponíveis", a: "Lotes e galpões mapeados, com zoneamento e infraestrutura descritos em cada ficha.", link: "Ver no Mapa", to: "/mapa", unit: "lotes mapeados" },
+      { q: "Tempo médio de licenciamento", a: "Prazos médios de alvará e licenciamento acompanhados pela Prefeitura.", link: "Ver painel Infraestrutura", to: "/infraestrutura", unit: "dias em média" },
     ],
     who: "Quem já está aqui",
     whoLink: "Ver empresas e cadeias produtivas",
@@ -52,7 +52,7 @@ export const pt = {
   },
   compare: {
     title: "Contagem ao lado das alternativas",
-    sub: "O investidor decide entre cidades. Mostramos onde Contagem lidera e onde não lidera.",
+    sub: "Descubra onde Contagem lidera na atração de investimentos",
     indicator: "Indicador",
     rows: { pib: "PIB", pibPc: "PIB per capita", pop: "População", empregos: "Empregos formais", salario: "Salário médio", empresas: "Empresas ativas", crescEmprego: "Crescimento do emprego (12 meses)", clp: "Ranking de competitividade (CLP)" },
     with: "Comparar com",
@@ -60,7 +60,7 @@ export const pt = {
     best: "Melhor valor",
     pending: "Dados das demais cidades em consolidação.",
   },
-  sectors: { title: "Setores em que Contagem é forte", examples: "Empresas instaladas", cta: "Ver tese do setor" },
+  sectors: { title: "Principais setores econômicos de Contagem", examples: "Empresas instaladas", cta: "Ver tese do setor" },
   explore: { title: "Aprofunde por tema", axis: "Eixo", open: "Abrir painel" },
   map: {
     title: "Encontre o lugar certo para sua empresa",

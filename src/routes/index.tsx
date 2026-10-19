@@ -17,7 +17,7 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: "Perfil de Investimento · Observatório de Contagem/MG" },
       { name: "description", content: "Contagem em números: PIB, empresas, mão de obra, terrenos e comparação com cidades concorrentes. Dados oficiais para investidores." },
-      { property: "og:title", content: "Invest in Contagem · Perfil de Investimento 2026" },
+      { property: "og:title", content: "Invista em Contagem · Perfil de Investimento 2026" },
       { property: "og:description", content: "Indústria, logística e mercado no coração de Minas Gerais, com fonte e data em cada número." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
