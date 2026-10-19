@@ -111,3 +111,5 @@
   .labor-section { scroll-margin-top: 490px; }
   .infrastructure-section { scroll-margin-top: 465px; }
 }
+.investir-section { scroll-margin-top: 260px; }
+@media (max-width: 767px) { .investir-section { scroll-margin-top: 420px; } }
