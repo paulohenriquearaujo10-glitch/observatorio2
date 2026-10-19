@@ -24,3 +24,4 @@
 - Infrastructure maps are hydration-only lazy imports with illustrative example layers separated from official data; source-gated sections and simulator actions remain hidden when records are unavailable.
 - Keep Investir statistics, incentives, projects, theses and cases in `src/data/investir.ts` and illustrative property records in `src/data/imoveis-exemplo.ts`; KPIs and cases reuse home/Companies fields so each number has one value.
 - Incentives publish only with name, legal basis, agency and source dates; Investir filters drive the opportunity count, list and map together.
+- Keep Innovation partners, KPIs, labs, calls and green cases in `src/data/inovacao.ts`; partner cards publish only name, official site and source dates until details are confirmed, preventing invented offers or distances.

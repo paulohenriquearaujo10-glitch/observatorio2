@@ -113,3 +113,5 @@
 }
 .investir-section { scroll-margin-top: 260px; }
 @media (max-width: 767px) { .investir-section { scroll-margin-top: 420px; } }
+.inovacao-section { scroll-margin-top: 220px; }
+@media (max-width: 767px) { .inovacao-section { scroll-margin-top: 380px; } }
