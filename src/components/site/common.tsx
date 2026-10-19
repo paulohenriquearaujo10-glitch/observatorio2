@@ -1,4 +1,4 @@
-import brandLogo from "@/assets/logo-observatorio-contagem.png.asset.json";
+import brandLogo from "@/assets/logo-observatorio-contagem-128.png.asset.json";
 import {
   Landmark, Users, Briefcase, Building2, TrendingUp, MapPin, Truck, Cog, Store, BarChart3, Factory,
   GraduationCap, Network, Rocket, Lightbulb, Sprout, type LucideIcon,
