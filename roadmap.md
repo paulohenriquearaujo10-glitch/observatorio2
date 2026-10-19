@@ -29,3 +29,6 @@
 - [x] Página /investir (filtros, áreas com mapa, teses, casos, expandir, próximo passo, metodologia)
 - [ ] Incentivos, monitor de investimentos, projetos estruturantes, galpões e resultados SUPGEST — aguardando dados com fonte e datas
 - [ ] Cadastro real de lotes (hoje ilustrativo)
+## Eixo 6 · Inovação
+- [x] Página /inovacao (filtros, Indústria 4.0, universidades, hubs, desafio simulado, financiamento, próximo passo, metodologia)
+- [ ] Números-chave, laboratórios, startups de Contagem, editais, propriedade intelectual, transição verde e mapa — aguardando dados com fonte e datas
