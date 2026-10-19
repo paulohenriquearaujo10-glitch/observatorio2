@@ -25,3 +25,7 @@
 - [x] Add source-gated operating estimates, next actions and methodology.
 - [x] Verify data rules and desktop/mobile page interactions.
 - [ ] Publish official indicators, tariffs, tax rates, property and licensing records — blocked on verified datasets not supplied in the brief.
+## Eixo 5 · Investir
+- [x] Página /investir (filtros, áreas com mapa, teses, casos, expandir, próximo passo, metodologia)
+- [ ] Incentivos, monitor de investimentos, projetos estruturantes, galpões e resultados SUPGEST — aguardando dados com fonte e datas
+- [ ] Cadastro real de lotes (hoje ilustrativo)
