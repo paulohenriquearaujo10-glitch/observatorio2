@@ -20,6 +20,7 @@ import { Route as InvestirRouteImport } from './routes/investir'
 import { Route as MapaRouteImport } from './routes/mapa'
 import { Route as PequenosNegociosRouteImport } from './routes/pequenos-negocios'
 import { Route as TrabalhoRouteImport } from './routes/trabalho'
+import { Route as InvestirCasoSlugRouteImport } from './routes/investir_.caso.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -76,6 +77,11 @@ const TrabalhoRoute = TrabalhoRouteImport.update({
   path: '/trabalho',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InvestirCasoSlugRoute = InvestirCasoSlugRouteImport.update({
+  id: '/investir_/caso/$slug',
+  path: '/investir/caso/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -89,6 +95,7 @@ export interface FileRoutesByFullPath {
   '/mapa': typeof MapaRoute
   '/pequenos-negocios': typeof PequenosNegociosRoute
   '/trabalho': typeof TrabalhoRoute
+  '/investir/caso/$slug': typeof InvestirCasoSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -102,6 +109,7 @@ export interface FileRoutesByTo {
   '/mapa': typeof MapaRoute
   '/pequenos-negocios': typeof PequenosNegociosRoute
   '/trabalho': typeof TrabalhoRoute
+  '/investir/caso/$slug': typeof InvestirCasoSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -116,6 +124,7 @@ export interface FileRoutesById {
   '/mapa': typeof MapaRoute
   '/pequenos-negocios': typeof PequenosNegociosRoute
   '/trabalho': typeof TrabalhoRoute
+  '/investir_/caso/$slug': typeof InvestirCasoSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -131,6 +140,7 @@ export interface FileRouteTypes {
     | '/mapa'
     | '/pequenos-negocios'
     | '/trabalho'
+    | '/investir/caso/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -144,6 +154,7 @@ export interface FileRouteTypes {
     | '/mapa'
     | '/pequenos-negocios'
     | '/trabalho'
+    | '/investir/caso/$slug'
   id:
     | '__root__'
     | '/'
@@ -157,6 +168,7 @@ export interface FileRouteTypes {
     | '/mapa'
     | '/pequenos-negocios'
     | '/trabalho'
+    | '/investir_/caso/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -171,6 +183,7 @@ export interface RootRouteChildren {
   MapaRoute: typeof MapaRoute
   PequenosNegociosRoute: typeof PequenosNegociosRoute
   TrabalhoRoute: typeof TrabalhoRoute
+  InvestirCasoSlugRoute: typeof InvestirCasoSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -252,6 +265,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TrabalhoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/investir_/caso/$slug': {
+      id: '/investir_/caso/$slug'
+      path: '/investir/caso/$slug'
+      fullPath: '/investir/caso/$slug'
+      preLoaderRoute: typeof InvestirCasoSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -267,6 +287,7 @@ const rootRouteChildren: RootRouteChildren = {
   MapaRoute: MapaRoute,
   PequenosNegociosRoute: PequenosNegociosRoute,
   TrabalhoRoute: TrabalhoRoute,
+  InvestirCasoSlugRoute: InvestirCasoSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
