@@ -23,12 +23,12 @@ export type SourceMeta = { fonte: string; dataReferencia: string; atualizadoEm: 
 export function sourced(row: SourceMeta) { return [row.fonte, row.dataReferencia, row.atualizadoEm].every(s => s.trim().length > 0); }
 export type Metric = SourceMeta & { id: string; label: LocalText; valor: number | null; unidade: string };
 export function metricPublished(row: Metric) { return row.valor !== null && Number.isFinite(row.valor) && sourced(row); }
-export const numeros: Metric[] = [
+export const numeros: Metric[] = ([
   ['pequenos', 'Pequenos negócios ativos', 'Active small businesses', 'Receita Federal (CNPJ)', ''],
   ['meis', 'MEIs ativos', 'Active MEIs', 'Portal do Empreendedor', ''],
   ['aberturas', 'Novos negócios em 12 meses', 'New businesses in 12 months', 'Receita Federal', ''],
   ['emprego', 'Participação no emprego', 'Share of employment', 'RAIS / Sebrae', '%'],
-].map(([id, pt, en, fonte, unidade]) => ({ id, label: text(pt, en), fonte, unidade, valor: null, dataReferencia: '', atualizadoEm: '' }));
+] as const).map(([id, pt, en, fonte, unidade]) => ({ id, label: text(pt, en), fonte, unidade, valor: null, dataReferencia: '', atualizadoEm: '' }));
 export const distancias = economyDistances;
 export const fornecedores: Metric[] = [
   { id: 'atacado', label: text('Atacadistas', 'Wholesalers'), valor: null, unidade: '', fonte: 'Receita Federal', dataReferencia: '', atualizadoEm: '' },
