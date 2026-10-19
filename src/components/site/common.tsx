@@ -46,9 +46,7 @@ export function BrandMark() {
   const { t } = useI18n();
   return (
     <div className="flex items-center gap-3">
-      <div className="grid h-10 w-10 place-items-center rounded-full border-2 border-orange-light font-serif text-sm font-bold text-orange-light" aria-hidden>
-        C
-      </div>
+      <img src={brandLogo.url} alt="" className="h-10 w-10 rounded-full object-cover" aria-hidden />
       <div className="leading-tight">
         <div className="font-serif text-base font-bold text-navy-foreground">{t.brand.name}</div>
         <div className="text-xs text-navy-muted">{t.brand.tagline}</div>
