@@ -70,7 +70,7 @@ export const zonasOrdem = ["ZAE1", "ZAE2", "ZEIS1", "ZEIS2", "ZPA1", "ZPA2", "ZP
 export const descricaoZonas: Record<(typeof zonasOrdem)[number], string> = { ZAE1: "", ZAE2: "", ZEIS1: "", ZEIS2: "", ZPA1: "", ZPA2: "", ZPA3: "", ZUD1: "", ZUD2: "", ZUD3: "", ZUD4: "" };
 export const fontesMapa = {
   osm: { pt: "OpenStreetMap (colaboradores do OSM, licença ODbL)", en: "OpenStreetMap (OSM contributors, ODbL licence)" },
-  zoneamento: { pt: "Prefeitura de Contagem, Plano Diretor (Lei Complementar nº 362/2023), Anexo III - Mapa de Zoneamento", en: "Contagem City Hall, Master Plan (Complementary Law 362/2023), Annex III - Zoning Map" },
+  zoneamento: { pt: "Prefeitura de Contagem, Plano Diretor (Lei Complementar nº 362/2023), Anexo III - Mapa de Zoneamento. Vetorização ilustrativa do PDF; não substitui a consulta oficial de zoneamento.", en: "Contagem City Hall, Master Plan (Complementary Law 362/2023), Annex III - Zoning Map. Illustrative vectorisation of the PDF; does not replace an official zoning check." },
   atualizadoEm: "19/11/2026",
 };
 export const documentos = { planoDiretor: "", usoSolo: "" };

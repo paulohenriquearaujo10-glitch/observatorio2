@@ -5,6 +5,7 @@
 - [x] Preserve shared navigation and finish metadata.
 - [x] Verify tests and desktop/mobile interactions.
 - [x] Preencher PIB, per capita, setores, ranking, população, pirâmide, segurança e comparação com o documento de 19/11/2026; verificar filtros e downloads.
+- [x] Incorporar arquivos recebidos de distritos, corredores e zoneamento em public/geo e verificar camadas e seleção no mapa Território.
 - [ ] Publish remaining indicators, official geometry, documents and district history — blocked on source datasets and document URLs not supplied in the brief.
 
 # Companies and Supply Chains

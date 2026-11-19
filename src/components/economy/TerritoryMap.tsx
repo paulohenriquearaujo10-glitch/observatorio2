@@ -23,8 +23,11 @@ async function isAvailable(url: string) {
   if (!r.ok || (r.headers.get("content-type") ?? "").includes("text/html")) throw new Error(`${url}: ${r.status}`);
 }
 function loadLayer(key: GeoCamada) {
-  if (!cache.has(key)) cache.set(key, fetch(geoArquivos[key]).then(async r => { if (!r.ok) throw new Error(`${geoArquivos[key]}: ${r.status}`); return (await r.json()) as FeatureCollection; }).catch(err => { cache.delete(key); throw err; }));
-  return cache.get(key)!;
+  const existing = cache.get(key);
+  if (existing) return existing;
+  const request = fetch(geoArquivos[key]).then(async r => { if (!r.ok) throw new Error(`${geoArquivos[key]}: ${r.status}`); return (await r.json()) as FeatureCollection; }).catch(err => { cache.delete(key); throw err; });
+  cache.set(key, request);
+  return request;
 }
 const fc = (features: Feature[]): FeatureCollection => ({ type: "FeatureCollection", features });
 const km2 = (features: Feature[]) => turfArea(fc(features)) / 1e6;

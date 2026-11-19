@@ -5,6 +5,7 @@ const norm = (v: unknown) => String(v ?? "").normalize("NFD").replace(/[\u0300-\
 export const distritosOrdem = ["Cinco", "Cinquinho", "Cincão", "Hélio Pentagna", "Riacho das Pedras", "Cidade Industrial"] as const;
 export function districtLabel(name: unknown): string | null {
   const n = norm(name);
+  if (n.startsWith("jardim ") || n.startsWith("parque ")) return null;
   if (n.includes("cinquinho")) return "Cinquinho";
   if (n.includes("cincao")) return "Cincão";
   if (n.includes("pentagna")) return "Hélio Pentagna";
@@ -43,5 +44,8 @@ export function groupFeatures(fc: FeatureCollection, types: string[], label: (f:
     const key = label(f); if (!key) continue;
     map.set(key, [...(map.get(key) ?? []), f]);
   }
-  return order.filter(k => map.has(k)).map(k => ({ key: k, features: map.get(k)! }));
+  return order.flatMap(key => {
+    const features = map.get(key);
+    return features ? [{ key, features }] : [];
+  });
 }
