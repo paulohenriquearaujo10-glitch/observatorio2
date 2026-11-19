@@ -1,1 +1,0 @@
-{"type": "FeatureCollection", "features": [{"type": "Feature", "properties": {"nome": "Área de expansão ilustrativa", "ilustrativo": true, "area": null, "populacao": null, "empresas": null, "empregos": null}, "geometry": {"type": "Polygon", "coordinates": [[[-44.1, -19.92], [-44.08, -19.92], [-44.08, -19.9], [-44.1, -19.9], [-44.1, -19.92]]]}}]}

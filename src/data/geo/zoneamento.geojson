@@ -1,1 +1,0 @@
-{"type": "FeatureCollection", "features": [{"type": "Feature", "properties": {"nome": "Zona ilustrativa", "ilustrativo": true, "area": null, "populacao": null, "empresas": null, "empregos": null}, "geometry": {"type": "Polygon", "coordinates": [[[-44.06, -19.96], [-44.045, -19.96], [-44.045, -19.94], [-44.06, -19.94], [-44.06, -19.96]]]}}]}

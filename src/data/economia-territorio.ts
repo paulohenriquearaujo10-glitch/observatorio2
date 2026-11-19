@@ -65,6 +65,14 @@ export const recortes = { regionais: [] as string[], polos: [] as string[] };
 export const alcance: Array<Metadata & { minutos: number; valor: number | null; renda: number | null }> = [30, 60, 120].map(minutos => ({ minutos, valor: null, renda: null, ...meta("IBGE / RAIS", "pessoas") }));
 export const distancias: Array<Metadata & { destino: string; valor: number | null; tempo: number | null; acessos: string[] }> = ["Belo Horizonte", "Aeroporto de Confins", "Betim", "São Paulo", "Rio de Janeiro", "Vitória", "Porto de Vitória"].map(destino => ({ destino, valor: null, tempo: null, acessos: [], ...meta("Prefeitura de Contagem", "km") }));
 export const polos: Array<Metadata & { nome: string; valor: number | null; empresas: number | null; setores: LocalText | null; acessos: string[] }> = recortes.polos.map(nome => ({ nome, valor: null, empresas: null, setores: null, acessos: [], ...meta("Prefeitura de Contagem", "km²") }));
+export const zonasOrdem = ["ZAE1", "ZAE2", "ZEIS1", "ZEIS2", "ZPA1", "ZPA2", "ZPA3", "ZUD1", "ZUD2", "ZUD3", "ZUD4"] as const;
+// Descrição de cada zona do Plano Diretor; vazio = painel mostra só o código.
+export const descricaoZonas: Record<(typeof zonasOrdem)[number], string> = { ZAE1: "", ZAE2: "", ZEIS1: "", ZEIS2: "", ZPA1: "", ZPA2: "", ZPA3: "", ZUD1: "", ZUD2: "", ZUD3: "", ZUD4: "" };
+export const fontesMapa = {
+  osm: { pt: "OpenStreetMap (colaboradores do OSM, licença ODbL)", en: "OpenStreetMap (OSM contributors, ODbL licence)" },
+  zoneamento: { pt: "Prefeitura de Contagem, Plano Diretor (Lei Complementar nº 362/2023), Anexo III - Mapa de Zoneamento", en: "Contagem City Hall, Master Plan (Complementary Law 362/2023), Annex III - Zoning Map" },
+  atualizadoEm: "19/11/2026",
+};
 export const documentos = { planoDiretor: "", usoSolo: "" };
 export const historia: Array<{ ano: string; texto: LocalText; fonte: string }> = [];
 export function gdpGrowth(city: string): number | null {

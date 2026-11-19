@@ -128,3 +128,6 @@
   .smallbiz-guide section { padding-top: 20px; padding-bottom: 20px; }
   .smallbiz-guide a { text-decoration: underline; }
 }
+
+.leaflet-tooltip.district-label { background: transparent; border: 0; box-shadow: none; font-weight: 700; font-size: 12px; color: #7a3412; text-shadow: 0 0 3px #fff, 0 0 3px #fff; }
+.leaflet-tooltip.district-label::before { display: none; }
