@@ -10,6 +10,7 @@
 <!-- LOVABLE:END -->
 
 - Keep Economy and Territory data, metadata, comparison options and source links in `src/data/economia-territorio.ts`; components must never fabricate missing statistics.
+- Economy display transforms use chart metadata for unit divisors, fixed index baselines and sector-total denominators; exports retain raw units and auxiliary totals so visual filtering cannot alter calculations.
 - Keep dashboard translations in the i18n files and use the existing language provider, so the shared shell and dashboard switch together.
 - Load Leaflet dynamically after hydration; example GeoJSON lives in `src/data/geo/` and must be labeled illustrative to avoid misrepresenting official geography.
 - Use reusable data-driven dashboard charts and browser-only CSV/XLSX/PNG exports, so empty datasets stay hidden without server dependencies.

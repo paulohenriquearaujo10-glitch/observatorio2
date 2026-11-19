@@ -1,4 +1,4 @@
-import { graficos, indicadores, linhasComparacao, alcance, distancias, polos, type ChartData, type Point } from "@/data/economia-territorio";
+import { graficos, indicadores, linhasComparacao, alcance, distancias, polos, censos, seguranca, territorioMunicipal, type ChartData, type Point } from "@/data/economia-territorio";
 
 export type ExportRow = Record<string, string | number | null>;
 export function csvText(rows: ExportRow[]): string {
@@ -11,16 +11,18 @@ function save(blob: Blob, filename: string) {
 }
 export function downloadCsv(rows: ExportRow[], filename: string) { save(new Blob([csvText(rows)], { type: "text/csv;charset=utf-8" }), filename + ".csv"); }
 export function chartRows(chart: ChartData, points: Point[] = chart.serie, keys = chart.chaves.map(k => k.id)): ExportRow[] {
-  return points.flatMap(point => keys.filter(key => point.valores[key] !== null && point.valores[key] !== undefined).map(key => ({ indicador: chart.id, periodo: point.periodo, recorte: point.recorte ?? "municipio", serie: key, valor: point.valores[key] ?? null, unidade: chart.unidade, fonte: chart.fonte, dataReferencia: chart.dataReferencia, periodicidade: chart.periodicidade, atualizadoEm: chart.atualizadoEm })));
+  return points.flatMap(point => [...new Set([...keys, ...chart.exportKeys ?? []])].filter(key => point.valores[key] !== null && point.valores[key] !== undefined).map(key => ({ indicador: chart.id, periodo: point.periodo, recorte: point.recorte ?? "municipio", serie: key, valor: point.valores[key] ?? null, unidade: key === "participacaoMG" ? "%" : key === "posicao" ? "posição" : chart.unidade, fonte: chart.fonte, dataReferencia: chart.dataReferencia, periodicidade: chart.periodicidade, atualizadoEm: chart.atualizadoEm, linkFonte: chart.linkFonte ?? "", nota: chart.nota?.pt ?? "" })));
 }
 export function allRows(): ExportRow[] {
   return [
     ...indicadores.filter(d => d.valor !== null).map(({ contexto, variacao, ...d }) => ({ ...d })),
     ...graficos.flatMap(g => chartRows(g)),
     ...linhasComparacao.flatMap(row => Object.entries(row.valores).filter(([,value]) => value !== null).map(([cidade, valor]) => ({ indicador: row.id, cidade, valor, unidade: row.unidade, fonte: row.fonte, dataReferencia: row.dataReferencia, periodicidade: row.periodicidade, atualizadoEm: row.atualizadoEm }))),
-    ...alcance.filter(d => d.valor !== null).map(d => ({ ...d, indicador: "alcance" })),
+    ...alcance.filter(d => d.valor !== null).map((d) => ({ ...d, indicador: "alcance" })),
     ...distancias.filter(d => d.valor !== null).map(({ acessos, ...d }) => ({ ...d, acessos: acessos.join(" · "), indicador: "distancia" })),
     ...polos.filter(d => d.valor !== null || d.empresas !== null).map(({ acessos, setores, ...d }) => ({ ...d, acessos: acessos.join(" · "), setores: setores?.pt ?? "", indicador: "polo" })),
+    ...censos.flatMap(c => (["pop2010", "pop2022", "area", "densidade"] as const).map(key => ({ indicador: key, cidade: c.cidade, valor: c[key], fonte: territorioMunicipal.fonte, dataReferencia: key === "pop2010" ? "2010" : "2022", atualizadoEm: territorioMunicipal.atualizadoEm }))),
+    { indicador: "seguranca", valor: seguranca.valor, vitimas: seguranca.vitimas, unidade: seguranca.unidade, fonte: seguranca.fonte, dataReferencia: seguranca.dataReferencia, atualizadoEm: seguranca.atualizadoEm },
   ];
 }
 export async function downloadXlsx() {

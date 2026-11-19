@@ -4,7 +4,8 @@
 - [x] Add client-only territorial map with clearly identified example layers.
 - [x] Preserve shared navigation and finish metadata.
 - [x] Verify tests and desktop/mobile interactions.
-- [ ] Publish remaining indicators, historical charts, official geometry, documents and district history — blocked on source datasets and document URLs not supplied in the brief.
+- [x] Preencher PIB, per capita, setores, ranking, população, pirâmide, segurança e comparação com o documento de 19/11/2026; verificar filtros e downloads.
+- [ ] Publish remaining indicators, official geometry, documents and district history — blocked on source datasets and document URLs not supplied in the brief.
 
 # Companies and Supply Chains
 - [x] Centralize bilingual company data and authorized-logo rules; update the shared Eixo 2 question.

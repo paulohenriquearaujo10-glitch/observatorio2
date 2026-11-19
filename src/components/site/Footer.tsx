@@ -1,10 +1,13 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { useI18n } from "@/i18n";
 import { ultimaAtualizacao } from "@/data/perfil";
+import { atualizadoEm as economyUpdate } from "@/data/economia-territorio";
 import { BrandMark, LangSwitch } from "./common";
 
 export function Footer() {
   const { t } = useI18n();
+  const location = useLocation();
+  const update = location.pathname === "/economia-territorio" ? economyUpdate : ultimaAtualizacao;
   const l = "text-sm text-navy-muted hover:text-navy-foreground";
   return (
     <footer className="bg-navy text-navy-foreground">
@@ -23,7 +26,7 @@ export function Footer() {
           <li><Link to="/contato" className={l}>{t.nav.contact}</Link></li>
         </ul>
         <div className="space-y-3 text-sm text-navy-muted">
-          <p>{t.footer.updated}: <span className="text-navy-foreground">{ultimaAtualizacao}</span></p>
+          <p>{t.footer.updated}: <span className="text-navy-foreground">{update}</span></p>
           <LangSwitch />
           <p>{t.footer.open}</p>
         </div>

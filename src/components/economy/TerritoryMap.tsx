@@ -6,6 +6,8 @@ import "leaflet/dist/leaflet.css";
 import { useI18n } from "@/i18n";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
+import { territorioMunicipal } from "@/data/economia-territorio";
+import { Source } from "./ChartPanel";
 import regionais from "@/data/geo/regionais.geojson?raw";
 import polos from "@/data/geo/polos.geojson?raw";
 import zoneamento from "@/data/geo/zoneamento.geojson?raw";
@@ -40,6 +42,7 @@ export default function TerritoryMap() {
         <span className="pointer-events-none absolute bottom-7 left-3 z-[500] bg-card px-2 py-1 text-xs font-semibold">{e.example}</span>
       </div>
       <aside className="min-w-0 space-y-6">
+        <div className="border-b pb-5"><h3 className="mb-3 text-base font-bold">Contagem</h3><p className="text-sm leading-relaxed">{e.area}: {territorioMunicipal.area?.toLocaleString(lang === "pt" ? "pt-BR" : "en-US", { maximumFractionDigits: 1 })} km² · {e.census2022}: {territorioMunicipal.pop2022?.toLocaleString(lang === "pt" ? "pt-BR" : "en-US")} · {e.density}: {territorioMunicipal.densidade?.toLocaleString(lang === "pt" ? "pt-BR" : "en-US", { maximumFractionDigits: 0 })} hab/km²</p><div className="mt-3"><Source data={territorioMunicipal} /></div></div>
         <div><h3 className="mb-3 text-base font-bold">{e.layers}</h3><div className="space-y-3">{(Object.keys(geometries) as LayerKey[]).map(key => <label key={key} className="flex cursor-pointer items-center gap-3 text-sm"><Checkbox checked={active.includes(key)} onCheckedChange={checked => setActive(a => checked ? [...a, key] : a.filter(k => k !== key))} />{e.layersNames[key]}</label>)}</div></div>
         <div className="border-t pt-5">{area ? <><p className="text-xs font-semibold uppercase text-orange">{e.example}</p><h3 className="mt-2 text-lg font-bold">{String(area["nome"])}</h3><dl className="mt-3 space-y-2 text-sm">{([ ["area", e.area, "km²"], ["populacao", e.population, ""], ["empresas", e.companies, ""], ["empregos", e.jobs, ""] ] as const).filter(([key]) => typeof area[key] === "number").map(([key, label, unit]) => <div key={key} className="flex justify-between gap-2"><dt>{label}</dt><dd>{Number(area[key]).toLocaleString(lang)} {unit}</dd></div>)}</dl><Button asChild variant="link" className="mt-3 h-auto whitespace-normal px-0 text-left"><Link to="/mapa">{e.opportunities} →</Link></Button></> : <p className="text-sm text-muted-foreground">{e.mapSelect}</p>}</div>
       </aside>
